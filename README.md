@@ -6,6 +6,7 @@ a table:
 
 ```nim
 
+import configparser ,  tables
 var config = configParser("./testconfig.ini")
 echo config
 echo config["LINUX"]["foo"]
@@ -14,6 +15,8 @@ echo config["LINUX"]["foo"]
 
 ##example config
 ```ini
+  
+  keywithnosection = huhu
 
   [LINUX]
   foo = baa
@@ -27,7 +30,8 @@ echo config["LINUX"]["foo"]
 
 would be accessible as:
 ```nim
-  echo config["LINUX"]["foo"]
+  echo config[""]["keywithnosection"] # huhu
+  echo config["LINUX"]["foo"]         # baa
 ```
 
 
@@ -35,7 +39,7 @@ would be accessible as:
 
   * no write support (yet?)!  
 
-  * if you have no section a default session is generated
+  * if you have no section a default section is generated
     with the name ""
     so you would access default section with:
 

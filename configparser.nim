@@ -36,10 +36,9 @@ discard """
 """
 
 
-import
-  os, parsecfg, strutils, streams , tables
+import os, parsecfg, strutils, streams , tables
 
-proc configParser(configPath: string): Table[system.string, Table[system.string, system.string]] =
+proc  configParser *(configPath: string): Table[system.string, Table[system.string, system.string]] =
 
   var config = initTable[string,Table[string,string] ]()
   var f = newFileStream(configPath, fmRead)
