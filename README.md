@@ -4,11 +4,12 @@
 it parses a default ini and builds
 a table:
 
+```nim
 config["sectionname"]["value"]
-
+```
 
 ##example config
-
+```ini
 
   [LINUX]
   foo = baa
@@ -18,11 +19,12 @@ config["sectionname"]["value"]
   [TRULALA]
   tarli = asddfggaf
   fasd= 123
-
+```
 
 would be accessible as:
+```nim
   echo config["LINUX"]["foo"]
-
+```
 
 
 ##issues:
@@ -31,4 +33,7 @@ would be accessible as:
   with the name ""
 
   so you would access default section with:
+  
+```nim  
     config[""]["keywithoutSection"]
+```
