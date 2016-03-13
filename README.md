@@ -5,7 +5,11 @@ it parses a default ini and builds
 a table:
 
 ```nim
-config["sectionname"]["value"]
+
+var config = configParser("./testconfig.ini")
+echo config
+echo config["LINUX"]["foo"]
+
 ```
 
 ##example config
@@ -29,11 +33,12 @@ would be accessible as:
 
 ##issues:
 
-  if you have no section a default session is generated
-  with the name ""
+  * no write support (yet?)!  
 
-  so you would access default section with:
-  
-```nim  
-    config[""]["keywithoutSection"]
-```
+  * if you have no section a default session is generated
+    with the name ""
+    so you would access default section with:
+
+    ```nim  
+        config[""]["keywithoutSection"]
+    ```
